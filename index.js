@@ -5,18 +5,41 @@
 // Opdracht voor nu: vertrouwd raken met de routing (de basics; we gaan hier dieper op in volgende week), en de views (templates)
 
 // zoals steeds "requiren" wat je wil gebruiken
+var cool = require('cool-ascii-faces');
 var express = require("express");
-var path = require("path");
+// var path = require("path");
 
 // Daarna een Express app maken
 var app = express();
 
+app.set('port', (process.env.PORT || 5000));
+
+app.use(express.static(__dirname + '/public'));
+
+// views is directory for all template files
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
+
+app.get('/', function(request, response) {
+  response.render('pages/index')
+});
+
+app.get('/cool', function(request, response) {
+  response.send(cool());
+});
+
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
+
 // Express vertellen dat je views zich in een folder views bevinden
-app.set("views", path.resolve(__dirname, "views"));
+// app.set("views", path.resolve(__dirname, "views"));
 
 // Express vertellen dat je de EJS templating gaat gebruiken
 // We moeten ejs ook installeren. Je doet dit via npm install ejs --save
-app.set("view engine", "ejs");
+// app.set("view engine", "ejs");
+
+
 
 // weergeven van een bestand index wanneer je de homepage van je site bezoekt
 app.get("nieuws", function(req, res) {
@@ -51,7 +74,9 @@ app.get("verkeer", function(req, res) {
 
 // https://expressjs.com/en/starter/static-files.html
 // Om statische bestanden zoals afbeeldingen, css&js-bestanden te kunnen weergeven gebruiken we de ingebouwde middleware functie express.static
-app.use(express.static('public'))
+
+// app.use(express.static('public'))
 
 // de server starten op poort 3000
-app.listen(3000);
+
+// app.listen(3000);
