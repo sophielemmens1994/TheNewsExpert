@@ -1,0 +1,70 @@
+body {
+  font-family: helvetica;
+  width: 90%;
+  margin: 25px auto;
+  line-height: 1.4em;
+}
+
+section {
+  margin: 25px 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+p {
+  margin: 10px 0;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+  color: #AFEEEE;
+}
+
+h2 {
+  margin: 25px 0;
+  font-size: 1.5em;
+  color: #00CED1;
+}
+
+h3 {
+  display: inline;
+  font-weight: bold;
+}
+
+a {
+  color: #AFEEEE;
+}
+
+nav {
+  font-size: 1.2em;
+  margin: 25px 0;
+  padding: 10px;
+  border: 1px solid #00CED1;
+  background-color: #00CED1;
+  color: white;
+}
+
+nav a {
+  display: block;
+  margin-left: 10px;
+  color: white;
+}
+
+nav a:hover {
+  color: grey;
+}
+
+/*
+
+nav a:active {
+  color:red;
+}
+
+li: .current nav a {
+  color: red;
+}
+
+*/
